@@ -1,0 +1,19 @@
+---
+name: "Letterboxd"
+guid: "75d9b535-57ce-430d-9763-188226066492"
+version: "1.0.0"
+targetAbi: "10.8.0.0"
+framework: "net6.0"
+overview: "Letterboxd external link"
+description: >
+  This simple plugin adds letterboxd as an external link to movies
+category: "Metadata"
+owner: "fawn"
+artifacts:
+- "Letterboxd.dll"
+changelog: >
+  Initial Version
+imageUrl: "https://raw.githubusercontent.com/fawni/jellyfin-letterboxd/master/.meta/thumb.png"
+build_type: "dotnet"
+dotnet_configuration: "Release"
+dotnet_framework: ".net6.0"

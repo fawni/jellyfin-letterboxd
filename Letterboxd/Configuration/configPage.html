@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+    <div id="ConfigPage" data-role="page" class="page type-interior pluginConfigurationPage" data-require="emby-input,emby-button,emby-select,emby-checkbox">
+        <div data-role="content">
+            <div class="content-primary">
+                <h1>Letterboxd</h1>
+                <form id="ConfigForm">
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="Name">Name:</label>
+                        <input id="Name" name="Name" type="text" is="emby-input" />
+                        <div class="fieldDescription">The name of the link to show in external links</div>
+                    </div>
+                    <div>
+                        <button is="emby-button" type="submit" class="raised button-submit block emby-button">
+                            <span>Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var Config = {
+                pluginUniqueId: '75d9b535-57ce-430d-9763-188226066492'
+            };
+
+            document.querySelector('#ConfigPage')
+                .addEventListener('pageshow', function() {
+                    Dashboard.showLoadingMsg();
+                    ApiClient.getPluginConfiguration(Config.pluginUniqueId).then(function (config) {
+                        document.querySelector('#Name').value = config.LinkName;
+                        Dashboard.hideLoadingMsg();
+                    });
+                });
+
+            document.querySelector('#ConfigForm')
+                .addEventListener('submit', function(e) {
+                Dashboard.showLoadingMsg();
+                ApiClient.getPluginConfiguration(Config.pluginUniqueId).then(function (config) {
+                    config.LinkName = document.querySelector('#Name').value;
+                    ApiClient.updatePluginConfiguration(Config.pluginUniqueId, config).then(function (result) {
+                        Dashboard.processPluginConfigurationUpdateResult(result);
+                    });
+                });
+
+                e.preventDefault();
+                return false;
+            });
+        </script>
+    </div>
+</body>
+</html>

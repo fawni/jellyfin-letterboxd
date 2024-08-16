@@ -1,0 +1,21 @@
+[
+    {
+        "guid": "75d9b535-57ce-430d-9763-188226066492",
+        "name": "Letterboxd",
+        "overview": "Letterboxd external link",
+        "description": "This simple plugin adds letterboxd as an external link to movies",
+        "owner": "fawn",
+        "category": "Metadata",
+        "imageUrl": "https://raw.githubusercontent.com/fawni/jellyfin-letterboxd/master/.meta/thumb.png",
+        "versions": [
+            {
+                "version": "1.0.0",
+                "changelog": "Initial Version",
+                "targetAbi": "10.8.0.0",
+                "sourceUrl": "https://github.com/fawni/jellyfin-letterboxd/releases/download/v1.0.0/Letterboxd_1.0.0.zip",
+                "checksum": "178a0afa25d47b30762f6fbb1332602b",
+                "timestamp": "2024-07-07T13:39:29Z"
+            },
+        ]
+    }
+]
